@@ -1,27 +1,24 @@
-console.log("hello world")
+console.log("hello world");
 
-// TODO - write a function that creates a board
-function createBoard(x) {
-    //NOTE I am creating a square so x and y can be the same value, having them be different added complication
-    let board = []
-    for (let i = 0; i <= x; i++) {
-        //NOTE - I need to push an array into the intial array for the second loop
-        board.push([])
-        for (let j = 0; j <= x; j++) {
-            board[i].push(0)
-        }
+let num = 16;
+
+function createBoard(num) {
+  //NOTE I am creating a square so x and y can be the same value, having them be different added complication
+  const board = document.querySelector(".board")
+  for (let i = 0; i < num; i++) {
+    let row = document.createElement("div")
+    board.appendChild(row)
+    for (let j = 0; j < num; j++) {
+      let column = document.createElement("div") 
+      row.appendChild(column)
     }
-    console.log(board)
-    return board
+  }
+  console.log("hello")
 }
 
-createBoard(4, 4)
-// TODO - write a function that displays the board
+createBoard(num)
 function displayBoard(num) {
-    //NOTE this function will be added to the button to implement the board on the page
-    const board = document.querySelector(".board")
-    //TODO add css styles in seperate file sheet in order to have visual representation of the board on the page
+  //NOTE this function will be added to the button to implement the board on the page
 }
-
 
 // TODO - write a function display the board
