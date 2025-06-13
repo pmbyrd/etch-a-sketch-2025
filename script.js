@@ -1,10 +1,10 @@
 console.log("hello world");
 
 let num = 16;
+const board = document.querySelector(".board");
 
 function createBoard(num) {
   //NOTE I am creating a square so x and y can be the same value, having them be different added complication
-  const board = document.querySelector(".board");
   for (let i = 0; i < num; i++) {
     for (let j = 0; j < num; j++) {
       const sq = createSquare(num);
@@ -18,6 +18,7 @@ function createBoard(num) {
 function createSquare(num) {
   const sq = document.createElement("div");
   const percent = 100 / num;
+  sq.className = "square";
   sq.style.border = "1px solid black";
   sq.style.backgroundColor = "teal";
   sq.style.width = `${percent}%`;
@@ -27,8 +28,14 @@ function createSquare(num) {
 }
 
 createBoard(num);
-function displayBoard(num) {
-  //NOTE this function will be added to the button to implement the board on the page
+
+function changeColor(e) {
+  let color = "black"
+  if (e.target.classList.contains("square")) {
+    console.log("hoving over the square")
+    e.target.style.backgroundColor = color
+  }
 }
 
-// TODO - write a function display the board
+board.addEventListener("mouseover", changeColor);
+// TODO - write a function displa the board
